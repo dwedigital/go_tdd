@@ -31,6 +31,17 @@ func TestSum(t *testing.T) {
 
 		assertCorrectResult(t, got, want, numbers)
 	})
+
+	// test for mutliple slices
+	t.Run("collection of multiple slices", func(t *testing.T) {
+		numbers := [][]int{{1, 2, 3}, {4, 5, 6}}
+		got := SumAll(numbers...)
+		want := []int{6, 15}
+
+		assertCorrectResult(t, got[0], want[0], numbers[0])
+
+		assertCorrectResult(t, got[1], want[1], numbers[1])
+	})
 }
 
 func assertCorrectResult(t testing.TB, got, want int, numbers []int) {
