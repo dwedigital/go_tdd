@@ -1,6 +1,9 @@
 package shapes
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestPerimeter(t *testing.T) {
 	checkArea := func(t *testing.T, shape Shape, want float64) {
@@ -30,4 +33,11 @@ func TestPerimeter(t *testing.T) {
 		circle := Circle{10}
 		checkArea(t, circle, 314.1592653589793)
 	})
+}
+
+func ExampleRectangle_Area() {
+	rectangle := Rectangle{12, 6}
+	area := rectangle.Area()
+	fmt.Println(area)
+	// Output: 72
 }
